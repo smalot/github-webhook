@@ -128,9 +128,7 @@ class Webhook
     protected function checkSecurity(Request $request, $secret)
     {
         // Reset any previously payload set.
-        $this->eventName = null;
-        $this->payload = null;
-        $this->delivery = null;
+        $this->eventName = $this->payload = $this->delivery = null;
 
         // Extract Github headers from request.
         $signature = (string)$request->headers->get('X-Hub-Signature');
