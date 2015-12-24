@@ -3,17 +3,15 @@
 namespace Smalot\Github\Webhook\Event;
 
 /**
- * Class CommitCommentEvent
+ * Class EventBase
  * @package Smalot\Github\Webhook\Event
  *
  * Triggered when a commit comment is created.
  */
-class CommitCommentEvent extends EventBase
+abstract class EventBase
 {
     /**
      * @return string
      */
-    public function getEventName() {
-        return 'commit_comment';
-    }
+    abstract public function getEventName();
 }
