@@ -103,7 +103,7 @@ class Webhook
             $namespace = '\\Smalot\\Github\\Webhook\\Event\\';
             $eventNames = $this->getDefaultEventNames();
 
-            $this->eventMap = array_map(
+            $classNames = array_map(
                 function ($event) use ($namespace) {
                     $className = str_replace(' ', '', ucwords(str_replace('_', ' ', $event)));
 
@@ -111,6 +111,8 @@ class Webhook
                 },
                 $eventNames
             );
+
+            $this->eventMap = array_combine($eventNames, $classNames);
         }
 
         return $this->eventMap;
