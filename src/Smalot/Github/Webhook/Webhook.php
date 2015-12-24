@@ -101,11 +101,16 @@ class Webhook
         if (empty($this->eventMap)) {
             $this->eventMap = array();
             $namespace = '\\Smalot\\Github\\Webhook\\Event\\';
+            $eventNames = $this->getDefaultEventNames();
 
-            foreach ($this->getDefaultEventNames() as $event) {
-                $className = str_replace(' ', '', ucwords(str_replace('_', ' ', $event)));
-                $this->eventMap[$event] = $namespace . $className . 'Event';
-            }
+            $this->eventMap = array_map(
+                function ($event) use ($namespace) {
+                    $className = str_replace(' ', '', ucwords(str_replace('_', ' ', $event)));
+
+                    return $namespace . $className . 'Event';
+                },
+                $eventNames
+            );
         }
 
         return $this->eventMap;
@@ -153,10 +158,10 @@ class Webhook
         $this->delivery = null;
 
         // Extract Github headers from request.
-        $signature = (string) $request->headers->get('X-Hub-Signature');
-        $event = (string) $request->headers->get('X-Github-Event');
-        $delivery = (string) $request->headers->get('X-Github-Delivery');
-        $payload = (string) $request->getContent();
+        $signature = (string)$request->headers->get('X-Hub-Signature');
+        $event = (string)$request->headers->get('X-Github-Event');
+        $delivery = (string)$request->headers->get('X-Github-Delivery');
+        $payload = (string)$request->getContent();
 
         if (!isset($signature, $event, $delivery)) {
             throw new \InvalidArgumentException('Missing Github headers.');
