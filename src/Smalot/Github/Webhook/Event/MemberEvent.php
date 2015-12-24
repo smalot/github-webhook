@@ -13,7 +13,8 @@ class MemberEvent extends EventBase
     /**
      * @return string
      */
-    public function getEventName() {
+    public function getEventName()
+    {
         return 'member';
     }
 }

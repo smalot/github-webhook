@@ -13,7 +13,8 @@ class PullRequestReviewCommentEvent extends EventBase
     /**
      * @return string
      */
-    public function getEventName() {
+    public function getEventName()
+    {
         return 'pull_request_review_comment';
     }
 }

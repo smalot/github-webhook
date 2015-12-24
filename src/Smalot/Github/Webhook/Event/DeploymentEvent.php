@@ -15,7 +15,8 @@ class DeploymentEvent extends EventBase
     /**
      * @return string
      */
-    public function getEventName() {
+    public function getEventName()
+    {
         return 'deployment';
     }
 }

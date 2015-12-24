@@ -13,7 +13,8 @@ class DeleteEvent extends EventBase
     /**
      * @return string
      */
-    public function getEventName() {
+    public function getEventName()
+    {
         return 'delete';
     }
 }

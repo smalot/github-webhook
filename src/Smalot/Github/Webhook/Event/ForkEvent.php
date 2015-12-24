@@ -13,7 +13,8 @@ class ForkEvent extends EventBase
     /**
      * @return string
      */
-    public function getEventName() {
+    public function getEventName()
+    {
         return 'fork';
     }
 }
