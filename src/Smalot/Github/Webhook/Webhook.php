@@ -63,7 +63,34 @@ class Webhook
      */
     public function getDefaultEventNames()
     {
-        return array('commit_comment', 'create', 'delete', 'deployment', 'deployment_status', 'download', 'follow', 'fork', 'fork_apply', 'gist', 'gollum', 'issue_comment', 'issues', 'member', 'membership', 'page_build', 'public', 'ping', 'pull_request', 'pull_request_review_comment', 'push', 'release', 'repository', 'status', 'team_add', 'watch');
+        return array(
+            'commit_comment',
+            'create',
+            'delete',
+            'deployment',
+            'deployment_status',
+            'download',
+            'follow',
+            'fork',
+            'fork_apply',
+            'gist',
+            'gollum',
+            'issue_comment',
+            'issues',
+            'member',
+            'membership',
+            'page_build',
+            'public',
+            'ping',
+            'pull_request',
+            'pull_request_review_comment',
+            'push',
+            'release',
+            'repository',
+            'status',
+            'team_add',
+            'watch',
+        );
     }
 
     /**
