@@ -148,10 +148,10 @@ class Webhook
         $this->delivery = null;
 
         // Extract Github headers from request.
-        $signature = $request->headers->get('X-Hub-Signature');
-        $event = $request->headers->get('X-Github-Event');
-        $delivery = $request->headers->get('X-Github-Delivery');
-        $payload = $request->getContent();
+        $signature = (string) $request->headers->get('X-Hub-Signature');
+        $event = (string) $request->headers->get('X-Github-Event');
+        $delivery = (string) $request->headers->get('X-Github-Delivery');
+        $payload = (string) $request->getContent();
 
         if (!isset($signature, $event, $delivery)) {
             throw new \InvalidArgumentException('Missing Github headers.');
