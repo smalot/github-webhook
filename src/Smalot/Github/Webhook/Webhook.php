@@ -67,39 +67,39 @@ class Webhook
             $this->eventMap = array();
 
             $events = array(
-              'commit_comment',
-              'create',
-              'delete',
-              'deployment',
-              'deployment_status',
-              'download',
-              'follow',
-              'fork',
-              'fork_apply',
-              'gist',
-              'gollum',
-              'issue_comment',
-              'issues',
-              'member',
-              'membership',
-              'page_build',
-              'public',
-              'ping',
-              'pull_request',
-              'pull_request_review_comment',
-              'push',
-              'release',
-              'repository',
-              'status',
-              'team_add',
-              'watch',
+                'commit_comment',
+                'create',
+                'delete',
+                'deployment',
+                'deployment_status',
+                'download',
+                'follow',
+                'fork',
+                'fork_apply',
+                'gist',
+                'gollum',
+                'issue_comment',
+                'issues',
+                'member',
+                'membership',
+                'page_build',
+                'public',
+                'ping',
+                'pull_request',
+                'pull_request_review_comment',
+                'push',
+                'release',
+                'repository',
+                'status',
+                'team_add',
+                'watch',
             );
 
             $namespace = '\\Smalot\\Github\\Webhook\\Event\\';
 
             foreach ($events as $event) {
                 $className = str_replace(' ', '', ucwords(str_replace('_', ' ', $event)));
-                $this->eventMap[$event] = $namespace.$className.'Event';
+                $this->eventMap[$event] = $namespace . $className . 'Event';
             }
         }
 
