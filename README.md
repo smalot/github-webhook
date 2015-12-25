@@ -70,4 +70,4 @@ class GithubController extends Controller
 }
 ````
 
-Don't forget to previously register any event listener.
+Don't forget to previously to register any event listener.
