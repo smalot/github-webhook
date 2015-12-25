@@ -32,7 +32,7 @@ abstract class EventBase
     public function __construct($eventName, $payload, $delivery = null)
     {
         $this->eventName = $eventName;
-        $this->payload = json_decode($payload, true);
+        $this->payload = (array) json_decode($payload, true);
         $this->delivery = $delivery;
     }
 
