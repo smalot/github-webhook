@@ -14,7 +14,7 @@ abstract class EventBase
     protected $eventName;
 
     /**
-     * @var string
+     * @var array
      */
     protected $payload;
 
@@ -42,7 +42,7 @@ abstract class EventBase
     abstract public function getEventName();
 
     /**
-     * @return string
+     * @return array
      */
     public function getPayload()
     {
@@ -55,5 +55,21 @@ abstract class EventBase
     public function getDelivery()
     {
         return $this->delivery;
+    }
+
+    /**
+     * @return array
+     */
+    public function getRepository()
+    {
+        return $this->payload['repository'];
+    }
+
+    /**
+     * @return array
+     */
+    public function getSender()
+    {
+        return $this->payload['sender'];
     }
 }

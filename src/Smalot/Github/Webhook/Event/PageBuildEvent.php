@@ -21,4 +21,12 @@ class PageBuildEvent extends EventBase
     {
         return 'page_build';
     }
+
+    /**
+     * @return array
+     */
+    public function getBuild()
+    {
+        return $this->payload['build'];
+    }
 }

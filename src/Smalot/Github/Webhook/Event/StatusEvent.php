@@ -19,4 +19,44 @@ class StatusEvent extends EventBase
     {
         return 'status';
     }
+
+    /**
+     * @return string
+     */
+    public function getSha()
+    {
+        return $this->payload['sha'];
+    }
+
+    /**
+     * @return string
+     */
+    public function getState()
+    {
+        return $this->payload['state'];
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->payload['description'];
+    }
+
+    /**
+     * @return string
+     */
+    public function getTargetUrl()
+    {
+        return $this->payload['target_url'];
+    }
+
+    /**
+     * @return array
+     */
+    public function getBranches()
+    {
+        return $this->payload['branches'];
+    }
 }

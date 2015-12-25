@@ -19,4 +19,20 @@ class DeploymentStatusEvent extends EventBase
     {
         return 'deployment_status';
     }
+
+    /**
+     * @return array
+     */
+    public function getDeploymentStatus()
+    {
+        return $this->payload['deployment_status'];
+    }
+
+    /**
+     * @return array
+     */
+    public function getDeployment()
+    {
+        return $this->payload['deployment'];
+    }
 }

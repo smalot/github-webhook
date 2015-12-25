@@ -19,4 +19,28 @@ class PingEvent extends EventBase
     {
         return 'ping';
     }
+
+    /**
+     * @return string
+     */
+    public function getZen()
+    {
+        return $this->payload['zen'];
+    }
+
+    /**
+     * @return string
+     */
+    public function getHookId()
+    {
+        return $this->payload['hook_id'];
+    }
+
+    /**
+     * @return array
+     */
+    public function getHook()
+    {
+        return $this->payload['hook'];
+    }
 }

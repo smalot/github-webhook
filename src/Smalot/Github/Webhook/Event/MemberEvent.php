@@ -17,4 +17,20 @@ class MemberEvent extends EventBase
     {
         return 'member';
     }
+
+    /**
+     * @return array
+     */
+    public function getMember()
+    {
+        return $this->payload['member'];
+    }
+
+    /**
+     * @return string
+     */
+    public function getAction()
+    {
+        return $this->payload['action'];
+    }
 }

@@ -17,4 +17,20 @@ class DeleteEvent extends EventBase
     {
         return 'delete';
     }
+
+    /**
+     * @return string
+     */
+    public function getRefType()
+    {
+        return $this->payload['ref_type'];
+    }
+
+    /**
+     * @return string
+     */
+    public function getRef()
+    {
+        return $this->payload['ref'];
+    }
 }

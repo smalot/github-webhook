@@ -17,4 +17,28 @@ class PullRequestReviewCommentEvent extends EventBase
     {
         return 'pull_request_review_comment';
     }
+
+    /**
+     * @return string
+     */
+    public function getAction()
+    {
+        return $this->payload['action'];
+    }
+
+    /**
+     * @return array
+     */
+    public function getPullRequest()
+    {
+        return $this->payload['pull_request'];
+    }
+
+    /**
+     * @return string
+     */
+    public function getComment()
+    {
+        return $this->payload['comment'];
+    }
 }

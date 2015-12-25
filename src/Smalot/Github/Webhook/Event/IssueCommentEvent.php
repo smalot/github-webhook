@@ -17,4 +17,28 @@ class IssueCommentEvent extends EventBase
     {
         return 'issue_comment';
     }
+
+    /**
+     * @return string
+     */
+    public function getAction()
+    {
+        return $this->payload['action'];
+    }
+
+    /**
+     * @return array
+     */
+    public function getIssue()
+    {
+        return $this->payload['issue'];
+    }
+
+    /**
+     * @return array
+     */
+    public function getComment()
+    {
+        return $this->payload['comment'];
+    }
 }

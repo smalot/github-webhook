@@ -19,4 +19,12 @@ class DeploymentEvent extends EventBase
     {
         return 'deployment';
     }
+
+    /**
+     * @return array
+     */
+    public function getDeployment()
+    {
+        return $this->payload['deployment'];
+    }
 }

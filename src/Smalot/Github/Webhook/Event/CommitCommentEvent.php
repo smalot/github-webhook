@@ -17,4 +17,12 @@ class CommitCommentEvent extends EventBase
     {
         return 'commit_comment';
     }
+
+    /**
+     * @return array
+     */
+    public function getComment()
+    {
+        return $this->payload['comment'];
+    }
 }

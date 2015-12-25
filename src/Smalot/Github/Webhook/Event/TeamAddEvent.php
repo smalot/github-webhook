@@ -19,4 +19,12 @@ class TeamAddEvent extends EventBase
     {
         return 'team_add';
     }
+
+    /**
+     * @return array
+     */
+    public function getTeam()
+    {
+        return $this->payload['team'];
+    }
 }

@@ -17,4 +17,20 @@ class ReleaseEvent extends EventBase
     {
         return 'release';
     }
+
+    /**
+     * @return string
+     */
+    public function getAction()
+    {
+        return $this->payload['action'];
+    }
+
+    /**
+     * @return array
+     */
+    public function getRelease()
+    {
+        return $this->payload['release'];
+    }
 }

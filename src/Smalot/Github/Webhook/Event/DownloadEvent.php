@@ -19,4 +19,12 @@ class DownloadEvent extends EventBase
     {
         return 'download';
     }
+
+    /**
+     * @return array
+     */
+    public function getDownload()
+    {
+        return $this->payload['download'];
+    }
 }

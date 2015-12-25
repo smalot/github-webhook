@@ -19,4 +19,12 @@ class FollowEvent extends EventBase
     {
         return 'follow';
     }
+
+    /**
+     * @return array
+     */
+    public function getTarget()
+    {
+        return $this->payload['target'];
+    }
 }

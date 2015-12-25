@@ -19,4 +19,12 @@ class RepositoryEvent extends EventBase
     {
         return 'repository';
     }
+
+    /**
+     * @return string
+     */
+    public function getAction()
+    {
+        return $this->payload['action'];
+    }
 }

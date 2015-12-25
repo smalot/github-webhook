@@ -18,4 +18,52 @@ class PushEvent extends EventBase
     {
         return 'push';
     }
+
+    /**
+     * @return string
+     */
+    public function getRef()
+    {
+        return $this->payload['ref'];
+    }
+
+    /**
+     * @return string
+     */
+    public function getHead()
+    {
+        return $this->payload['head'];
+    }
+
+    /**
+     * @return string
+     */
+    public function getBefore()
+    {
+        return $this->payload['before'];
+    }
+
+    /**
+     * @return int
+     */
+    public function getSize()
+    {
+        return $this->payload['size'];
+    }
+
+    /**
+     * @return int
+     */
+    public function getDistinctSize()
+    {
+        return $this->payload['distinct_size'];
+    }
+
+    /**
+     * @return array
+     */
+    public function getCommits()
+    {
+        return $this->payload['commits'];
+    }
 }

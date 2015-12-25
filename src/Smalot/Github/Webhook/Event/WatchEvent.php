@@ -19,4 +19,12 @@ class WatchEvent extends EventBase
     {
         return 'watch';
     }
+
+    /**
+     * @return string
+     */
+    public function getAction()
+    {
+        return $this->payload['action'];
+    }
 }

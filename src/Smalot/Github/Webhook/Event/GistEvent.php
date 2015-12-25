@@ -19,4 +19,20 @@ class GistEvent extends EventBase
     {
         return 'gist';
     }
+
+    /**
+     * @return string
+     */
+    public function getAction()
+    {
+        return $this->payload['action'];
+    }
+
+    /**
+     * @return array
+     */
+    public function getGist()
+    {
+        return $this->payload['gist'];
+    }
 }

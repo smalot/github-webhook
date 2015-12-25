@@ -18,4 +18,28 @@ class PullRequestEvent extends EventBase
     {
         return 'pull_request';
     }
+
+    /**
+     * @return string
+     */
+    public function getAction()
+    {
+        return $this->payload['action'];
+    }
+
+    /**
+     * @return int
+     */
+    public function getNumber()
+    {
+        return $this->payload['number'];
+    }
+
+    /**
+     * @return array
+     */
+    public function getPullRequest()
+    {
+        return $this->payload['pull_request'];
+    }
 }

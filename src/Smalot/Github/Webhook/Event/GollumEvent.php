@@ -17,4 +17,12 @@ class GollumEvent extends EventBase
     {
         return 'gollum';
     }
+
+    /**
+     * @return array
+     */
+    public function getPages()
+    {
+        return $this->payload['pages'];
+    }
 }

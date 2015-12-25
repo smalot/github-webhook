@@ -19,4 +19,28 @@ class ForkApplyEvent extends EventBase
     {
         return 'fork_apply';
     }
+
+    /**
+     * @return string
+     */
+    public function getHead()
+    {
+        return $this->payload['head'];
+    }
+
+    /**
+     * @return string
+     */
+    public function getBefore()
+    {
+        return $this->payload['before'];
+    }
+
+    /**
+     * @return string
+     */
+    public function getAfter()
+    {
+        return $this->payload['after'];
+    }
 }

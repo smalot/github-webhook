@@ -19,4 +19,36 @@ class CreateEvent extends EventBase
     {
         return 'create';
     }
+
+    /**
+     * @return string
+     */
+    public function getRefType()
+    {
+        return $this->payload['ref_type'];
+    }
+
+    /**
+     * @return string
+     */
+    public function getRef()
+    {
+        return $this->payload['ref'];
+    }
+
+    /**
+     * @return string
+     */
+    public function getMasterBranch()
+    {
+        return $this->payload['master_branch'];
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->payload['description'];
+    }
 }

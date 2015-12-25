@@ -17,4 +17,12 @@ class ForkEvent extends EventBase
     {
         return 'fork';
     }
+
+    /**
+     * @return array
+     */
+    public function getForkee()
+    {
+        return $this->payload['forkee'];
+    }
 }
