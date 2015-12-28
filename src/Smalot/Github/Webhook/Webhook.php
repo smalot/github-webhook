@@ -179,7 +179,7 @@ class Webhook
         $delivery = (string)$request->headers->get('X-Github-Delivery');
         $payload = (string)$request->getContent();
 
-        if (!isset($signature, $event, $delivery)) {
+        if (empty($signature) || empty($event) || empty($delivery)) {
             throw new \InvalidArgumentException('Missing Github headers.');
         }
 
