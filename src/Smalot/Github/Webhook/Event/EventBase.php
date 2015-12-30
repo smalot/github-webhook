@@ -2,11 +2,13 @@
 
 namespace Smalot\Github\Webhook\Event;
 
+use Symfony\Component\EventDispatcher\Event;
+
 /**
  * Class EventBase
  * @package Smalot\Github\Webhook\Event
  */
-abstract class EventBase
+abstract class EventBase extends Event
 {
     /**
      * @var string
