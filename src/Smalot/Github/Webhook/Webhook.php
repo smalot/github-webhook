@@ -3,7 +3,7 @@
 namespace Smalot\Github\Webhook;
 
 use Smalot\Github\Webhook\Event\EventBase;
-use Symfony\Component\EventDispatcher\EventDispatcher;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\Request;
 class Webhook
 {
     /**
-     * @var EventDispatcher
+     * @var EventDispatcherInterface
      */
     protected $eventDispatcher;
 
@@ -39,9 +39,9 @@ class Webhook
 
     /**
      * Webhook constructor.
-     * @param EventDispatcher $eventDispatcher
+     * @param EventDispatcherInterface $eventDispatcher
      */
-    public function __construct(EventDispatcher $eventDispatcher = null)
+    public function __construct(EventDispatcherInterface $eventDispatcher = null)
     {
         $this->eventDispatcher = $eventDispatcher;
         $this->eventMap = array();
