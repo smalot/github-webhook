@@ -17,7 +17,7 @@ abstract class ModelBase
      * EventBase constructor.
      * @param array $payload
      */
-    public function __construct($payload)
+    public function __construct($payload = array())
     {
         $this->payload = $payload;
     }
