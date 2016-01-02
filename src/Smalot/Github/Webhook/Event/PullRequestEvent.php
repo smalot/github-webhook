@@ -2,6 +2,8 @@
 
 namespace Smalot\Github\Webhook\Event;
 
+use Smalot\Github\Webhook\Model\PullRequestModel;
+
 /**
  * Class PullRequestEvent
  * @package Smalot\Github\Webhook\Event
@@ -14,32 +16,16 @@ class PullRequestEvent extends EventBase
     /**
      * @return string
      */
-    public function getEventName()
+    protected function getClassModel()
     {
-        return 'pull_request';
+        return '\Smalot\Github\Webhook\Model\PullRequestModel';
     }
 
     /**
-     * @return string
+     * @return PullRequestModel
      */
-    public function getAction()
+    public function getData()
     {
-        return $this->payload['action'];
-    }
-
-    /**
-     * @return int
-     */
-    public function getNumber()
-    {
-        return $this->payload['number'];
-    }
-
-    /**
-     * @return array
-     */
-    public function getPullRequest()
-    {
-        return $this->payload['pull_request'];
+        return $this->model;
     }
 }

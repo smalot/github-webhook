@@ -2,6 +2,8 @@
 
 namespace Smalot\Github\Webhook\Event;
 
+use Smalot\Github\Webhook\Model\ForkModel;
+
 /**
  * Class ForkEvent
  * @package Smalot\Github\Webhook\Event
@@ -13,16 +15,16 @@ class ForkEvent extends EventBase
     /**
      * @return string
      */
-    public function getEventName()
+    protected function getClassModel()
     {
-        return 'fork';
+        return '\Smalot\Github\Webhook\Model\ForkModel';
     }
 
     /**
-     * @return array
+     * @return ForkModel
      */
-    public function getForkee()
+    public function getData()
     {
-        return $this->payload['forkee'];
+        return $this->model;
     }
 }

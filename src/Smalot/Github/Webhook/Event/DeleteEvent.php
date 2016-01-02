@@ -2,6 +2,8 @@
 
 namespace Smalot\Github\Webhook\Event;
 
+use Smalot\Github\Webhook\Model\DeleteModel;
+
 /**
  * Class DeleteEvent
  * @package Smalot\Github\Webhook\Event
@@ -13,24 +15,16 @@ class DeleteEvent extends EventBase
     /**
      * @return string
      */
-    public function getEventName()
+    protected function getClassModel()
     {
-        return 'delete';
+        return '\Smalot\Github\Webhook\Model\DeleteModel';
     }
 
     /**
-     * @return string
+     * @return DeleteModel
      */
-    public function getRefType()
+    public function getData()
     {
-        return $this->payload['ref_type'];
-    }
-
-    /**
-     * @return string
-     */
-    public function getRef()
-    {
-        return $this->payload['ref'];
+        return $this->model;
     }
 }

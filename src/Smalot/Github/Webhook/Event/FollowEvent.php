@@ -2,6 +2,8 @@
 
 namespace Smalot\Github\Webhook\Event;
 
+use Smalot\Github\Webhook\Model\FollowModel;
+
 /**
  * Class FollowEvent
  * @package Smalot\Github\Webhook\Event
@@ -15,16 +17,16 @@ class FollowEvent extends EventBase
     /**
      * @return string
      */
-    public function getEventName()
+    protected function getClassModel()
     {
-        return 'follow';
+        return '\Smalot\Github\Webhook\Model\FollowModel';
     }
 
     /**
-     * @return array
+     * @return FollowModel
      */
-    public function getTarget()
+    public function getData()
     {
-        return $this->payload['target'];
+        return $this->model;
     }
 }

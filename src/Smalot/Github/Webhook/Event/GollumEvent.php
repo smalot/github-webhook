@@ -2,6 +2,8 @@
 
 namespace Smalot\Github\Webhook\Event;
 
+use Smalot\Github\Webhook\Model\GollumModel;
+
 /**
  * Class GollumEvent
  * @package Smalot\Github\Webhook\Event
@@ -13,16 +15,16 @@ class GollumEvent extends EventBase
     /**
      * @return string
      */
-    public function getEventName()
+    protected function getClassModel()
     {
-        return 'gollum';
+        return '\Smalot\Github\Webhook\Model\GollumModel';
     }
 
     /**
-     * @return array
+     * @return GollumModel
      */
-    public function getPages()
+    public function getData()
     {
-        return $this->payload['pages'];
+        return $this->model;
     }
 }

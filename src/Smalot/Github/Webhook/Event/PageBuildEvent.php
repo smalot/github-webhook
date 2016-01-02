@@ -2,6 +2,8 @@
 
 namespace Smalot\Github\Webhook\Event;
 
+use Smalot\Github\Webhook\Model\PageBuildModel;
+
 /**
  * Class PageBuildEvent
  * @package Smalot\Github\Webhook\Event
@@ -17,16 +19,16 @@ class PageBuildEvent extends EventBase
     /**
      * @return string
      */
-    public function getEventName()
+    protected function getClassModel()
     {
-        return 'page_build';
+        return '\Smalot\Github\Webhook\Model\PageBuildModel';
     }
 
     /**
-     * @return array
+     * @return PageBuildModel
      */
-    public function getBuild()
+    public function getData()
     {
-        return $this->payload['build'];
+        return $this->model;
     }
 }

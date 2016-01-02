@@ -2,6 +2,8 @@
 
 namespace Smalot\Github\Webhook\Event;
 
+use Smalot\Github\Webhook\Model\IssuesModel;
+
 /**
  * Class IssuesEvent
  * @package Smalot\Github\Webhook\Event
@@ -13,40 +15,16 @@ class IssuesEvent extends EventBase
     /**
      * @return string
      */
-    public function getEventName()
+    protected function getClassModel()
     {
-        return 'issues';
+        return '\Smalot\Github\Webhook\Model\IssuesModel';
     }
 
     /**
-     * @return string
+     * @return IssuesModel
      */
-    public function getAction()
+    public function getData()
     {
-        return $this->payload['action'];
-    }
-
-    /**
-     * @return array
-     */
-    public function getIssue()
-    {
-        return $this->payload['issue'];
-    }
-
-    /**
-     * @return array
-     */
-    public function getAssignee()
-    {
-        return $this->payload['assignee'];
-    }
-
-    /**
-     * @return string
-     */
-    public function getLabel()
-    {
-        return $this->payload['label'];
+        return $this->model;
     }
 }

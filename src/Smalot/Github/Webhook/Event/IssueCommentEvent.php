@@ -2,6 +2,8 @@
 
 namespace Smalot\Github\Webhook\Event;
 
+use Smalot\Github\Webhook\Model\IssueCommentModel;
+
 /**
  * Class IssueCommentEvent
  * @package Smalot\Github\Webhook\Event
@@ -13,32 +15,16 @@ class IssueCommentEvent extends EventBase
     /**
      * @return string
      */
-    public function getEventName()
+    protected function getClassModel()
     {
-        return 'issue_comment';
+        return '\Smalot\Github\Webhook\Model\IssueCommentModel';
     }
 
     /**
-     * @return string
+     * @return IssueCommentModel
      */
-    public function getAction()
+    public function getData()
     {
-        return $this->payload['action'];
-    }
-
-    /**
-     * @return array
-     */
-    public function getIssue()
-    {
-        return $this->payload['issue'];
-    }
-
-    /**
-     * @return array
-     */
-    public function getComment()
-    {
-        return $this->payload['comment'];
+        return $this->model;
     }
 }

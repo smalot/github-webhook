@@ -2,6 +2,8 @@
 
 namespace Smalot\Github\Webhook\Event;
 
+use Smalot\Github\Webhook\Model\MemberModel;
+
 /**
  * Class MemberEvent
  * @package Smalot\Github\Webhook\Event
@@ -13,24 +15,16 @@ class MemberEvent extends EventBase
     /**
      * @return string
      */
-    public function getEventName()
+    protected function getClassModel()
     {
-        return 'member';
+        return '\Smalot\Github\Webhook\Model\MemberModel';
     }
 
     /**
-     * @return array
+     * @return MemberModel
      */
-    public function getMember()
+    public function getData()
     {
-        return $this->payload['member'];
-    }
-
-    /**
-     * @return string
-     */
-    public function getAction()
-    {
-        return $this->payload['action'];
+        return $this->model;
     }
 }

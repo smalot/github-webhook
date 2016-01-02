@@ -2,6 +2,8 @@
 
 namespace Smalot\Github\Webhook\Event;
 
+use Smalot\Github\Webhook\Model\PingModel;
+
 /**
  * Class PingEvent
  * @package Smalot\Github\Webhook\Event
@@ -15,32 +17,16 @@ class PingEvent extends EventBase
     /**
      * @return string
      */
-    public function getEventName()
+    protected function getClassModel()
     {
-        return 'ping';
+        return '\Smalot\Github\Webhook\Model\PingModel';
     }
 
     /**
-     * @return string
+     * @return PingModel
      */
-    public function getZen()
+    public function getData()
     {
-        return $this->payload['zen'];
-    }
-
-    /**
-     * @return string
-     */
-    public function getHookId()
-    {
-        return $this->payload['hook_id'];
-    }
-
-    /**
-     * @return array
-     */
-    public function getHook()
-    {
-        return $this->payload['hook'];
+        return $this->model;
     }
 }

@@ -2,6 +2,8 @@
 
 namespace Smalot\Github\Webhook\Event;
 
+use Smalot\Github\Webhook\Model\WatchModel;
+
 /**
  * Class WatchEvent
  * @package Smalot\Github\Webhook\Event
@@ -15,16 +17,16 @@ class WatchEvent extends EventBase
     /**
      * @return string
      */
-    public function getEventName()
+    protected function getClassModel()
     {
-        return 'watch';
+        return '\Smalot\Github\Webhook\Model\WatchModel';
     }
 
     /**
-     * @return string
+     * @return WatchModel
      */
-    public function getAction()
+    public function getData()
     {
-        return $this->payload['action'];
+        return $this->model;
     }
 }

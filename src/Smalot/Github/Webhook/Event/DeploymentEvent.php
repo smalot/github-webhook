@@ -2,6 +2,8 @@
 
 namespace Smalot\Github\Webhook\Event;
 
+use Smalot\Github\Webhook\Model\DeploymentModel;
+
 /**
  * Class DeploymentEvent
  * @package Smalot\Github\Webhook\Event
@@ -15,16 +17,16 @@ class DeploymentEvent extends EventBase
     /**
      * @return string
      */
-    public function getEventName()
+    protected function getClassModel()
     {
-        return 'deployment';
+        return '\Smalot\Github\Webhook\Model\DeploymentModel';
     }
 
     /**
-     * @return array
+     * @return DeploymentModel
      */
-    public function getDeployment()
+    public function getData()
     {
-        return $this->payload['deployment'];
+        return $this->model;
     }
 }

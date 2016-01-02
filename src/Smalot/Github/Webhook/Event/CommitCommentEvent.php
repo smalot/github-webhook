@@ -2,6 +2,8 @@
 
 namespace Smalot\Github\Webhook\Event;
 
+use Smalot\Github\Webhook\Model\CommitCommentModel;
+
 /**
  * Class CommitCommentEvent
  * @package Smalot\Github\Webhook\Event
@@ -13,16 +15,16 @@ class CommitCommentEvent extends EventBase
     /**
      * @return string
      */
-    public function getEventName()
+    protected function getClassModel()
     {
-        return 'commit_comment';
+        return '\Smalot\Github\Webhook\Model\CommitCommentModel';
     }
 
     /**
-     * @return array
+     * @return CommitCommentModel
      */
-    public function getComment()
+    public function getData()
     {
-        return $this->payload['comment'];
+        return $this->model;
     }
 }

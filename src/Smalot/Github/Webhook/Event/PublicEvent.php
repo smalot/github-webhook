@@ -2,6 +2,8 @@
 
 namespace Smalot\Github\Webhook\Event;
 
+use Smalot\Github\Webhook\Model\PublicModel;
+
 /**
  * Class PublicEvent
  * @package Smalot\Github\Webhook\Event
@@ -13,8 +15,16 @@ class PublicEvent extends EventBase
     /**
      * @return string
      */
-    public function getEventName()
+    protected function getClassModel()
     {
-        return 'public';
+        return '\Smalot\Github\Webhook\Model\PublicModel';
+    }
+
+    /**
+     * @return PublicModel
+     */
+    public function getData()
+    {
+        return $this->model;
     }
 }

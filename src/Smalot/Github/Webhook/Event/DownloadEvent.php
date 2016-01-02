@@ -2,6 +2,8 @@
 
 namespace Smalot\Github\Webhook\Event;
 
+use Smalot\Github\Webhook\Model\DownloadModel;
+
 /**
  * Class DownloadEvent
  * @package Smalot\Github\Webhook\Event
@@ -15,16 +17,16 @@ class DownloadEvent extends EventBase
     /**
      * @return string
      */
-    public function getEventName()
+    protected function getClassModel()
     {
-        return 'download';
+        return '\Smalot\Github\Webhook\Model\DownloadModel';
     }
 
     /**
-     * @return array
+     * @return DownloadModel
      */
-    public function getDownload()
+    public function getData()
     {
-        return $this->payload['download'];
+        return $this->model;
     }
 }

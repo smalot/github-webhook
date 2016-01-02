@@ -2,6 +2,8 @@
 
 namespace Smalot\Github\Webhook\Event;
 
+use Smalot\Github\Webhook\Model\StatusModel;
+
 /**
  * Class StatusEvent
  * @package Smalot\Github\Webhook\Event
@@ -15,48 +17,16 @@ class StatusEvent extends EventBase
     /**
      * @return string
      */
-    public function getEventName()
+    protected function getClassModel()
     {
-        return 'status';
+        return '\Smalot\Github\Webhook\Model\StatusModel';
     }
 
     /**
-     * @return string
+     * @return StatusModel
      */
-    public function getSha()
+    public function getData()
     {
-        return $this->payload['sha'];
-    }
-
-    /**
-     * @return string
-     */
-    public function getState()
-    {
-        return $this->payload['state'];
-    }
-
-    /**
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->payload['description'];
-    }
-
-    /**
-     * @return string
-     */
-    public function getTargetUrl()
-    {
-        return $this->payload['target_url'];
-    }
-
-    /**
-     * @return array
-     */
-    public function getBranches()
-    {
-        return $this->payload['branches'];
+        return $this->model;
     }
 }

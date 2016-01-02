@@ -2,6 +2,8 @@
 
 namespace Smalot\Github\Webhook\Event;
 
+use Smalot\Github\Webhook\Model\ReleaseModel;
+
 /**
  * Class ReleaseEvent
  * @package Smalot\Github\Webhook\Event
@@ -13,24 +15,16 @@ class ReleaseEvent extends EventBase
     /**
      * @return string
      */
-    public function getEventName()
+    protected function getClassModel()
     {
-        return 'release';
+        return '\Smalot\Github\Webhook\Model\ReleaseModel';
     }
 
     /**
-     * @return string
+     * @return ReleaseModel
      */
-    public function getAction()
+    public function getData()
     {
-        return $this->payload['action'];
-    }
-
-    /**
-     * @return array
-     */
-    public function getRelease()
-    {
-        return $this->payload['release'];
+        return $this->model;
     }
 }

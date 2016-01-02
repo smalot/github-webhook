@@ -2,6 +2,8 @@
 
 namespace Smalot\Github\Webhook\Event;
 
+use Smalot\Github\Webhook\Model\TeamAddModel;
+
 /**
  * Class TeamAddEvent
  * @package Smalot\Github\Webhook\Event
@@ -15,16 +17,16 @@ class TeamAddEvent extends EventBase
     /**
      * @return string
      */
-    public function getEventName()
+    protected function getClassModel()
     {
-        return 'team_add';
+        return '\Smalot\Github\Webhook\Model\TeamAddModel';
     }
 
     /**
-     * @return array
+     * @return TeamAddModel
      */
-    public function getTeam()
+    public function getData()
     {
-        return $this->payload['team'];
+        return $this->model;
     }
 }

@@ -2,6 +2,8 @@
 
 namespace Smalot\Github\Webhook\Event;
 
+use Smalot\Github\Webhook\Model\PullRequestReviewCommentModel;
+
 /**
  * Class PullRequestReviewCommentEvent
  * @package Smalot\Github\Webhook\Event
@@ -13,32 +15,16 @@ class PullRequestReviewCommentEvent extends EventBase
     /**
      * @return string
      */
-    public function getEventName()
+    protected function getClassModel()
     {
-        return 'pull_request_review_comment';
+        return '\Smalot\Github\Webhook\Model\PullRequestReviewCommentModel';
     }
 
     /**
-     * @return string
+     * @return PullRequestReviewCommentModel
      */
-    public function getAction()
+    public function getData()
     {
-        return $this->payload['action'];
-    }
-
-    /**
-     * @return array
-     */
-    public function getPullRequest()
-    {
-        return $this->payload['pull_request'];
-    }
-
-    /**
-     * @return string
-     */
-    public function getComment()
-    {
-        return $this->payload['comment'];
+        return $this->model;
     }
 }

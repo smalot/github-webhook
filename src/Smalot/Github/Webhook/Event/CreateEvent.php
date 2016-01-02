@@ -2,6 +2,8 @@
 
 namespace Smalot\Github\Webhook\Event;
 
+use Smalot\Github\Webhook\Model\CreateModel;
+
 /**
  * Class CreateEvent
  * @package Smalot\Github\Webhook\Event
@@ -15,40 +17,16 @@ class CreateEvent extends EventBase
     /**
      * @return string
      */
-    public function getEventName()
+    protected function getClassModel()
     {
-        return 'create';
+        return '\Smalot\Github\Webhook\Model\CreateModel';
     }
 
     /**
-     * @return string
+     * @return CreateModel
      */
-    public function getRefType()
+    public function getData()
     {
-        return $this->payload['ref_type'];
-    }
-
-    /**
-     * @return string
-     */
-    public function getRef()
-    {
-        return $this->payload['ref'];
-    }
-
-    /**
-     * @return string
-     */
-    public function getMasterBranch()
-    {
-        return $this->payload['master_branch'];
-    }
-
-    /**
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->payload['description'];
+        return $this->model;
     }
 }

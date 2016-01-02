@@ -2,6 +2,8 @@
 
 namespace Smalot\Github\Webhook\Event;
 
+use Smalot\Github\Webhook\Model\GistModel;
+
 /**
  * Class GistEvent
  * @package Smalot\Github\Webhook\Event
@@ -15,24 +17,16 @@ class GistEvent extends EventBase
     /**
      * @return string
      */
-    public function getEventName()
+    protected function getClassModel()
     {
-        return 'gist';
+        return '\Smalot\Github\Webhook\Model\GistModel';
     }
 
     /**
-     * @return string
+     * @return GistModel
      */
-    public function getAction()
+    public function getData()
     {
-        return $this->payload['action'];
-    }
-
-    /**
-     * @return array
-     */
-    public function getGist()
-    {
-        return $this->payload['gist'];
+        return $this->model;
     }
 }

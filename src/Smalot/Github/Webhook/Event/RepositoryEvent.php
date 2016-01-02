@@ -2,6 +2,8 @@
 
 namespace Smalot\Github\Webhook\Event;
 
+use Smalot\Github\Webhook\Model\RepositoryModel;
+
 /**
  * Class RepositoryEvent
  * @package Smalot\Github\Webhook\Event
@@ -15,16 +17,16 @@ class RepositoryEvent extends EventBase
     /**
      * @return string
      */
-    public function getEventName()
+    protected function getClassModel()
     {
-        return 'repository';
+        return '\Smalot\Github\Webhook\Model\RepositoryModel';
     }
 
     /**
-     * @return string
+     * @return RepositoryModel
      */
-    public function getAction()
+    public function getData()
     {
-        return $this->payload['action'];
+        return $this->model;
     }
 }

@@ -2,6 +2,8 @@
 
 namespace Smalot\Github\Webhook\Event;
 
+use Smalot\Github\Webhook\Model\PushModel;
+
 /**
  * Class PushEvent
  * @package Smalot\Github\Webhook\Event
@@ -14,56 +16,16 @@ class PushEvent extends EventBase
     /**
      * @return string
      */
-    public function getEventName()
+    protected function getClassModel()
     {
-        return 'push';
+        return '\Smalot\Github\Webhook\Model\PushModel';
     }
 
     /**
-     * @return string
+     * @return PushModel
      */
-    public function getRef()
+    public function getData()
     {
-        return $this->payload['ref'];
-    }
-
-    /**
-     * @return string
-     */
-    public function getHead()
-    {
-        return $this->payload['head'];
-    }
-
-    /**
-     * @return string
-     */
-    public function getBefore()
-    {
-        return $this->payload['before'];
-    }
-
-    /**
-     * @return int
-     */
-    public function getSize()
-    {
-        return $this->payload['size'];
-    }
-
-    /**
-     * @return int
-     */
-    public function getDistinctSize()
-    {
-        return $this->payload['distinct_size'];
-    }
-
-    /**
-     * @return array
-     */
-    public function getCommits()
-    {
-        return $this->payload['commits'];
+        return $this->model;
     }
 }
