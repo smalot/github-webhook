@@ -25,6 +25,24 @@ abstract class ModelBase
     /**
      * @return array
      */
+    public function export()
+    {
+        return array(
+            'payload' => $this->payload,
+        );
+    }
+
+    /**
+     * @param array $data
+     */
+    public function import($data)
+    {
+        $this->payload = $data['payload'];
+    }
+
+    /**
+     * @return array
+     */
     public function getRepository()
     {
         return $this->payload['repository'];
